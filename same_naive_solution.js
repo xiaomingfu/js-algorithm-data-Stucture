@@ -5,12 +5,14 @@ function same(arr1, arr2) {
   for (let i = 0; i < arr1.length; i++) {
     let correctIndex = arr2.indexOf(arr1[i] ** 2);
     if (correctIndex === -1) {
-      return false;
+      return fasle;
     }
-    console.log(arr2);
     arr2.splice(correctIndex, 1);
   }
   return true;
 }
 
-same([1, 2, 3, 2], [9, 1, 4, 4]);
+same([1, 2, 3], [4, 9]);
+same([1, 2, 3], [1, 9]);
+same([1, 2, 1], (4, 4, 1));
+// compacity 0(n^2)
