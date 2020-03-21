@@ -7,7 +7,7 @@ function sumZero(arr) {
       return [arr[i] + arr[j]];
     } else if (sum > 0) {
       j--;
-    } else if (sum < 0) {
+    } else {
       i++;
     }
   }
