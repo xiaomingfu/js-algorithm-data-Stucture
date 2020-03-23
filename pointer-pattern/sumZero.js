@@ -4,7 +4,7 @@ function sumZero(arr) {
   while (i < j) {
     let sum = arr[i] + arr[j];
     if (sum === 0) {
-      return [arr[i] + arr[j]];
+      return [arr[i], arr[j]];
     } else if (sum > 0) {
       j--;
     } else {
