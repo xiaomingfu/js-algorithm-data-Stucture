@@ -9,7 +9,7 @@
 //   return -1;
 // }
 
-// binary search
+// binary search log(N)
 function search(arr, val) {
   let min = 0;
   let max = arr.length - 1;
