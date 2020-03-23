@@ -19,9 +19,6 @@ function sameFrequency(a, b) {
     count2[char] = (count2[char] || 0) + 1;
   }
   for (let key in count1) {
-    if (!count2[key]) {
-      return false;
-    }
     if (count2[key] !== count1[key]) {
       return false;
     }
