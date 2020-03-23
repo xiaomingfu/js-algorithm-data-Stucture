@@ -1,9 +1,9 @@
 function maxSubarraySum(arr, int) {
-  if (!arr.length) {
+  if (n > arr.length) {
     return null;
   }
-  let sum = 0;
-  for (let i = 0; i < arr.length - int; i++) {
+  let sum = -Infinity;
+  for (let i = 0; i < arr.length - int + 1; i++) {
     let temp = 0;
     for (let j = 0; j < int; j++) {
       temp += arr[i + j];
