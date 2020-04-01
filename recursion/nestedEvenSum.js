@@ -3,7 +3,7 @@ function nestedEvenSum(obj) {
   var sum = 0;
 
   let values = Object.values(obj);
-  for (value of values) {
+  for (let value of values) {
     if (value % 2 === 0) {
       sum = sum + value;
     } else if (typeof value === "object") {
