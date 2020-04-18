@@ -18,13 +18,16 @@ function mostDigits(nums) {
   return maxDigits;
 }
 
-function radix(arr) {
-  let maxDigits = maxDigits(arr);
+function radix(nums) {
+  let maxDigits = maxDigits(nums);
   for (let i = 0; i < maxDigits; i++) {
-    let grid = [[], [], [], [], [], [], [], [], [], []];
-    for (let j = 0; j < arr.length; j++) {
-      let digit = getDigit(arr[j], i);
-      grid[digit].push(arr[j]);
+    // let grid = [[], [], [], [], [], [], [], [], [], []];
+    let digitBuckets = Array.from({ length: 10 }, () => []);
+    for (let j = 0; j < nums.length; j++) {
+      let digit = getDigit(nums[j], i);
+      digitBuckets[digit].push(nums[j]);
     }
+    nums = [].concat(...digitBuckets);
   }
+  return nums;
 }
