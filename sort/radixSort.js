@@ -17,3 +17,14 @@ function mostDigits(nums) {
   }
   return maxDigits;
 }
+
+function radix(arr) {
+  let maxDigits = maxDigits(arr);
+  for (let i = 0; i < maxDigits; i++) {
+    let grid = [[], [], [], [], [], [], [], [], [], []];
+    for (let j = 0; j < arr.length; j++) {
+      let digit = getDigit(arr[j], i);
+      grid[digit].push(arr[j]);
+    }
+  }
+}
