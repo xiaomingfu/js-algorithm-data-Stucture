@@ -24,4 +24,20 @@ class SinglyLinkedList {
     this.length += 1;
     return this;
   }
+
+  pop() {
+    if (!this.head) {
+      return;
+    }
+    var head = this.head;
+    while (this.head.next.next) {
+      this.head = this.head.next;
+    }
+    var delNode = this.head.next;
+    this.head.next = null;
+    this.tail = this.head;
+    this.head = head;
+    length--;
+    return delNode;
+  }
 }
