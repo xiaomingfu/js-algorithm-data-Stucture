@@ -21,7 +21,7 @@ class SinglyLinkedList {
       this.tail.next = newNode;
       this.tail = newNode;
     }
-    this.length += 1;
+    this.length++;
     return this;
   }
 
@@ -29,15 +29,32 @@ class SinglyLinkedList {
     if (!this.head) {
       return;
     }
-    var head = this.head;
-    while (this.head.next.next) {
-      this.head = this.head.next;
+    var current = this.head;
+    var newTail = current;
+    while (current.next) {
+      newTail = current;
+      current = current.next;
     }
-    var delNode = this.head.next;
-    this.head.next = null;
-    this.tail = this.head;
-    this.head = head;
-    length--;
-    return delNode;
+    this.tail = newTail;
+    this.tail.next = null;
+    this.length--;
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+    return current;
+  }
+
+  shift() {
+    if (!this.head) {
+      return;
+    }
+    let temp = this.head;
+    this.head = temp.next;
+    this.length--;
+    if (this.length === 0) {
+      this.tail = null;
+    }
+    return temp;
   }
 }
