@@ -92,4 +92,23 @@ class SinglyLinkedList {
     foundNode.data = value;
     return true;
   }
+
+  insert(idx, val) {
+    if (idx < 0 || idx > this.length) {
+      return false;
+    }
+    if (idx === 0) {
+      this.unshift(val);
+    } else if (idx === this.length) {
+      this.push(val);
+    } else {
+      let foundNode = this.get(idx - 1);
+      let newNode = new Node(val);
+      let temp = foundNode.next;
+      foundNode.next = newNode;
+      newNode.next = temp;
+      this.length++;
+    }
+    return true;
+  }
 }
