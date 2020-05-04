@@ -99,16 +99,37 @@ class SinglyLinkedList {
     }
     if (idx === 0) {
       this.unshift(val);
-    } else if (idx === this.length) {
-      this.push(val);
-    } else {
-      let foundNode = this.get(idx - 1);
-      let newNode = new Node(val);
-      let temp = foundNode.next;
-      foundNode.next = newNode;
-      newNode.next = temp;
-      this.length++;
+      return true;
     }
+    if (idx === this.length) {
+      this.push(val);
+      return true;
+    }
+    let prev = this.get(idx - 1);
+    let newNode = new Node(val);
+    let temp = prev.next;
+    prev.next = newNode;
+    newNode.next = temp;
+    this.length++;
     return true;
   }
+
+  remove(idx) {
+    if (idx < 0 || idx > this.length) {
+      return;
+    }
+    if (idx === 0) {
+      return this.shift();
+    }
+    if (idx === this.length - 1) {
+      return this.pop();
+    }
+    let pre = this.get(idx - 1);
+    let removed = pre.next;
+    pre.next = removed.next;
+    this.length--;
+    return removed;
+  }
+
+  reverse() {}
 }
