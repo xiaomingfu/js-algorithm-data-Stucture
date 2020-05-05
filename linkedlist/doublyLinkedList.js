@@ -2,7 +2,7 @@ class Node {
   constructor(val) {
     this.val = val;
     this.next = null;
-    this.previous = null;
+    this.prev = null;
   }
 }
 
@@ -20,10 +20,27 @@ class doublyLinkedList {
       this.tail = this.head;
     } else {
       this.tail.next = newNode;
-      newNode.previous = this.tail;
+      newNode.prev = this.tail;
       this.tail = newNode;
     }
     this.length++;
     return this;
+  }
+
+  pop() {
+    if (!this.head) {
+      return;
+    }
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      var temp = this.tail;
+      this.tail = temp.prev;
+      this.tail.next = null;
+      temp.prev = null;
+    }
+    this.length--;
+    return temp;
   }
 }
