@@ -31,11 +31,11 @@ class doublyLinkedList {
     if (!this.head) {
       return;
     }
+    let temp = this.tail;
     if (this.length === 1) {
       this.head = null;
       this.tail = null;
     } else {
-      var temp = this.tail;
       this.tail = temp.prev;
       this.tail.next = null;
       temp.prev = null;
