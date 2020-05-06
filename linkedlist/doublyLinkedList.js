@@ -125,4 +125,23 @@ class doublyLinkedList {
     }
     return true;
   }
+
+  remove(idx) {
+    if (idx < 0 || idx > this.length) {
+      return;
+    }
+    if (idx === 0) {
+      return this.unshift();
+    } else if (idx === this.length - 1) {
+      return this.pop();
+    } else {
+      let removedNode = this.get(idx);
+      removedNode.prev.next = removedNode.next;
+      removedNode.next.prev = removedNode.prev;
+      removedNode.next = null;
+      removedNode.prev = null;
+      this.length--;
+      return removedNode;
+    }
+  }
 }
