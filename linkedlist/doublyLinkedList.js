@@ -131,7 +131,7 @@ class doublyLinkedList {
       return;
     }
     if (idx === 0) {
-      return this.unshift();
+      return this.shift();
     } else if (idx === this.length - 1) {
       return this.pop();
     } else {
