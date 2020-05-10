@@ -77,6 +77,53 @@ class BinarySearchTree {
     }
     return data;
   }
+  // preOrder
+  DFSPreOrder() {
+    let data = [];
+    function traverse(node) {
+      data.push(node);
+      if (node.left) {
+        traverse(node.left);
+      }
+      if (node.right) {
+        traverse(node.right);
+      }
+    }
+    traverse(this.root);
+    return data;
+  }
+
+  // postOrder
+  DFSPostOrder() {
+    let data = [];
+    function traverse(node) {
+      if (node.left) {
+        traverse(node.left);
+      }
+      if (node.right) {
+        traverse(node.right);
+      }
+      data.push(node);
+    }
+    traverse(this.root);
+    return data;
+  }
+
+  // inOrder
+  DFSInOrder() {
+    let data = [];
+    function traverse(node) {
+      if (node.left) {
+        traverse(node.left);
+      }
+      data.push(node);
+      if (node.right) {
+        traverse(node.right);
+      }
+    }
+    traverse(this.root);
+    return data;
+  }
 }
 
 let tree = new BinarySearchTree();
