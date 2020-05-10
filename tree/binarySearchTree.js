@@ -41,14 +41,15 @@ class BinarySearchTree {
     }
   }
 
-  search(val) {
+  find(val) {
     if (!this.root) {
-      return;
+      return false;
     }
     let current = this.root;
+
     while (current) {
       if (current.val === val) {
-        return current;
+        return true;
       }
       if (current.val > val) {
         current = current.left;
@@ -56,7 +57,25 @@ class BinarySearchTree {
         current = current.right;
       }
     }
-    return;
+    return false;
+  }
+
+  traverseBFS() {
+    let data = [];
+    let queue = [];
+    let node = this.root;
+    queue.push([this.root]);
+    while (queue.length) {
+      node = queue.shift();
+      data.push(node);
+      if (node.left) {
+        queue.push(node.left);
+      }
+      if (node.right) {
+        queue.push(node.right);
+      }
+    }
+    return data;
   }
 }
 
