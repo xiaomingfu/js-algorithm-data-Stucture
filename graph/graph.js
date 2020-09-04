@@ -20,14 +20,36 @@ class Graph {
     }
     delete this.adjacencyList[vertex];
   }
+  depthFirstRecursive(start) {
+    const result = [];
+    const visited = {};
+    const adjacencyList = this.adjacencyList[start];
+
+    (function dfs(vertex) {
+      if (!vertex) return null;
+      visited[vertext] = true;
+      result.push(vertext);
+      adjacencyList.forEach((neighbor) => {
+        if (!visited[neighbor]) {
+          return dfs(neighbor);
+        }
+      });
+    })(start);
+    return result;
+  }
 }
 
 let g = new Graph();
-g.addVertex("Hongkong");
-g.addVertex("Dallas");
-g.addVertex("San Francisco");
-g.addVertex("San Jose");
-g.addEdge("Hongkong", "San Jose");
-g.addEdge("San Jose", "San Francisco");
-g.addEdge("San Francisco", "Dallas");
-g.addEdge("San Jose", "Dallas");
+g.addVertex("A");
+g.addVertex("B");
+g.addVertex("C");
+g.addVertex("D");
+g.addVertex("E");
+g.addVertex("F");
+g.addEdge("A", "B");
+g.addEdge("A", "C");
+g.addEdge("B", "D");
+g.addEdge("C", "E");
+g.addEdge("D", "E");
+g.addEdge("D", "F");
+g.addEdge("E", "F");
